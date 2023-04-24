@@ -3,12 +3,11 @@ import rawData from "./../data.json";
 export default function Carousel() {
   const [data, setData] = useState(rawData);
   useEffect(() => {
-    const output = data.filter((movie) => movie.isTrending);
-    setData([...output]);
+    setData([...data.filter((movie) => movie.isTrending)]);
   }, []);
 
   return (
-    <div className=" grid grid-flow-col gap-4 px-4 overflow-x-auto no-scrollbar border border-red">
+    <div className=" grid grid-flow-col gap-4 px-4 overflow-x-auto no-scrollbar">
       {data.map((movie, ind) => (
         <div
           key={movie.title + ind}

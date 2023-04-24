@@ -1,15 +1,16 @@
 import Carousel from "./components/Carousel";
+import MovieCard from "./components/MovieCard";
 import SideBar from "./components/SideBar";
 
 function App() {
   return (
     <>
-      <div className=" bg-teal-blue text-white mini-pc:grid mini-pc:grid-cols-2">
-        <div className=" w-fit border">
+      <div className=" bg-teal-blue text-white mini-pc:flex">
+        <div>
           <SideBar />
         </div>
         <div>
-          <Carousel />
+          <MovieCard />
         </div>
       </div>
     </>
