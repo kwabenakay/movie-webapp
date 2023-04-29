@@ -5,6 +5,7 @@ import SearchOutput from "./components/SearchOutput";
 import Home from "./pages/Home";
 import Filter from "./components/Filter";
 import Movies from "./pages/Movies";
+import TvSeries from "./pages/TvSeries";
 
 function App() {
   return (
@@ -14,8 +15,8 @@ function App() {
           <SideBar />
         </div>
         <div className=" pl-4 tablet:pl-6 mini-pc:pl-12 mini-pc:max-w-[95%]">
-          <Filter page="home" />
-          <Movies />
+          <Filter page="tv-series" />
+          <TvSeries />
         </div>
       </div>
     </>
