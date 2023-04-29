@@ -4,6 +4,7 @@ import SideBar from "./components/SideBar";
 import SearchOutput from "./components/SearchOutput";
 import Home from "./pages/Home";
 import Filter from "./components/Filter";
+import Movies from "./pages/Movies";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
         </div>
         <div className=" pl-4 tablet:pl-6 mini-pc:pl-12 mini-pc:max-w-[95%]">
           <Filter page="home" />
-          <Home />
+          <Movies />
         </div>
       </div>
     </>
