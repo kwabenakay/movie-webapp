@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div className=" mt-6">
       <Carousel movies={data} />
-      <div>
+      <div className=" pr-4 tablet:pr-6 mini-pc:pr-12">
         <div className="py-6">Recommended for you </div>
         <MovieCard movies={data} />
       </div>

@@ -10,7 +10,7 @@ export default function Carousel(Prop: { movies: movie[] }) {
   return (
     <div>
       <div className=" pb-4">Trending</div>
-      <div className=" grid grid-flow-col gap-4 overflow-x-auto no-scrollbar">
+      <div className=" grid grid-flow-col gap-4 pr-4 overflow-x-auto no-scrollbar">
         {data.map((movie, ind) => (
           <div
             key={movie.title + ind}
