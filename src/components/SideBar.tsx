@@ -1,7 +1,8 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function SideBar() {
   let loctation = useLocation();
+  let navigate = useNavigate();
   const myString: string = loctation.pathname;
   const regex: RegExp = /\/([^/]+)$/;
   const match: RegExpMatchArray | null = myString.match(regex);
@@ -9,7 +10,7 @@ export default function SideBar() {
   return (
     <div className=" mini-pc:fixed mini-pc:h-screen mini-pc:max-w-24 mini-pc:flex mini-pc:justify-between mini-pc:items-center">
       <div className=" flex justify-between p-4 bg-light-teal-blue tablet:rounded-xl tablet:mx-6 tablet:mt-4 tablet:h-20 tablet:items-center mini-pc:flex-col mini-pc:justify-normal mini-pc:gap-16 mini-pc:w-20 mini-pc:items-center mini-pc:h-[90%] mini-pc:ml-4 mini-pc:mr-0">
-        <div>
+        <div onClick={() => navigate("/home")}>
           <svg
             width="33"
             height="27"
@@ -24,7 +25,7 @@ export default function SideBar() {
           </svg>
         </div>
         <div className=" flex gap-6 mini-pc:flex-col">
-          <div>
+          <div onClick={() => navigate("/home")}>
             <svg
               width="20"
               height="20"
@@ -40,7 +41,7 @@ export default function SideBar() {
               />
             </svg>
           </div>
-          <div>
+          <div onClick={() => navigate("/movies")}>
             <svg
               width="20"
               height="20"
@@ -56,7 +57,7 @@ export default function SideBar() {
               />
             </svg>
           </div>
-          <div>
+          <div onClick={() => navigate("/tv-series")}>
             <svg
               width="20"
               height="20"
@@ -72,7 +73,7 @@ export default function SideBar() {
               />
             </svg>
           </div>
-          <div>
+          <div onClick={() => navigate("/bookmark")}>
             <svg
               width="17"
               height="20"
