@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Filter from "./components/Filter";
 import Movies from "./pages/Movies";
 import TvSeries from "./pages/TvSeries";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
@@ -15,8 +16,12 @@ function App() {
           <SideBar />
         </div>
         <div className=" pl-4 tablet:pl-6 mini-pc:pl-12 mini-pc:max-w-[95%]">
-          <Filter page="tv-series" />
-          <TvSeries />
+          <Filter />
+          <Routes>
+            <Route path="/home" element={<Home/>}/>
+            <Route path="/movies" element={<Movies/>}/>
+            <Route path="/tv-series" element={<TvSeries/>}/>
+          </Routes>
         </div>
       </div>
     </>
