@@ -7,6 +7,7 @@ import Filter from "./components/Filter";
 import Movies from "./pages/Movies";
 import TvSeries from "./pages/TvSeries";
 import { Route, Routes } from "react-router-dom";
+import Bookmark from "./pages/Bookmark";
 
 function App() {
   return (
@@ -15,12 +16,13 @@ function App() {
         <div className=" mini-pc:pr-24">
           <SideBar />
         </div>
-        <div className=" pl-4 tablet:pl-6 mini-pc:pl-12 mini-pc:max-w-[95%]">
+        <div className=" pl-4 pb-6 tablet:pl-6 tablet:pb-8 mini-pc:pl-12 mini-pc:pb-14 mini-pc:max-w-[95%]">
           <Filter />
           <Routes>
             <Route path="/home" element={<Home/>}/>
             <Route path="/movies" element={<Movies/>}/>
             <Route path="/tv-series" element={<TvSeries/>}/>
+            <Route path="/bookmark" element={<Bookmark/>}/>
           </Routes>
         </div>
       </div>
