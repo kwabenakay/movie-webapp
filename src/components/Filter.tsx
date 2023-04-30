@@ -3,7 +3,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 export default function Filter() {
   let loctation = useLocation();
   let navigate = useNavigate();
-  let isSwitched = false;
   let myString: string = loctation.pathname;
   let regex: RegExp = /\/([^/]+)$/;
   let match: RegExpMatchArray | null = myString.match(regex);
