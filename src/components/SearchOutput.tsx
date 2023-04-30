@@ -7,7 +7,7 @@ export default function MovieCard() {
     setData([...data.filter((movie) => movie.isTrending)]);
   }, []);
   return (
-    <div>
+    <div className=" pr-4 tablet:pr-6 mini-pc:pr-12">
       <div className=" mb-6">
         Found {data.length} results for {"string input"}
       </div>

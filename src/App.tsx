@@ -6,7 +6,7 @@ import Home from "./pages/Home";
 import Filter from "./components/Filter";
 import Movies from "./pages/Movies";
 import TvSeries from "./pages/TvSeries";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Bookmark from "./pages/Bookmark";
 
 function App() {
@@ -20,9 +20,11 @@ function App() {
           <Filter />
           <Routes>
             <Route path="/home" element={<Home/>}/>
+            <Route path="/" element={<Navigate to="/home"/>}/>
             <Route path="/movies" element={<Movies/>}/>
             <Route path="/tv-series" element={<TvSeries/>}/>
             <Route path="/bookmark" element={<Bookmark/>}/>
+            <Route path="/search" element={<SearchOutput/>}/>
           </Routes>
         </div>
       </div>

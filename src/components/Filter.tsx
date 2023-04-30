@@ -1,38 +1,46 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Filter() {
   let loctation = useLocation();
-  const myString: string = loctation.pathname;
-  const regex: RegExp = /\/([^/]+)$/;
-  const match: RegExpMatchArray | null = myString.match(regex);
-
+  let navigate = useNavigate();
+  let isSwitched = false;
+  let myString: string = loctation.pathname;
+  let regex: RegExp = /\/([^/]+)$/;
+  let match: RegExpMatchArray | null = myString.match(regex);
+  let currentPage = match ? match[1] : "";
   function pageType() {
-    switch (match ? match[1] : "") {
+    switch (currentPage) {
       case "home": {
-        return "movies or TV series";
+        return "Search for movies or TV series";
       }
       case "movies": {
-        return "movies";
+        return "Search for movies";
       }
       case "tv-series": {
-        return "TV series";
+        return "Search for TV series";
       }
       case "bookmark": {
-        return "bookmarked shows";
+        return "Search for bookmarked shows";
       }
       default:
-        return "movies or TV series";
+        return "";
     }
   }
   return (
-    <div className=" text-white w-full flex gap-4 pt-3">
+    <div className=" text-white w-full flex gap-4 pt-3 pr-4 tablet:pr-6 mini-pc:pr-12">
       <div>serch logo</div>
       <input
         type="text"
-        placeholder={"Search for " + pageType()}
-        className=" bg-transparent outline-none w-full"
+        placeholder={ pageType()}
+        className=" bg-transparent outline-none w-full focus:border-b-2 focus:border-b-white"
         onChange={(e) => {
-          console.log(e);
+          if (currentPage!=="search") {
+            navigate("/search");
+          } 
+          else if ( e.target.value.trim().length === 0||!e.target.value) {
+            navigate(-1);
+          } 
+          console.log(e.target.value);
         }}
       />
     </div>
