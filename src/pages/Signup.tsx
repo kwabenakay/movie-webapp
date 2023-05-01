@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import data from "../data.json";
+import { Logo } from "../components/SVG";
 
 interface FormErrors {
   email?: string[];
@@ -22,10 +23,16 @@ export default function Signup() {
       if (formData.email && formData.password) {
         localStorage.setItem("data", JSON.stringify(data));
         navigate("/home");
-      } else {
+      } 
+      else if (!formData.email ) {
+        
         console.log("Something went wrong");
         setFormErrors({
-          email: ["can't be empty"],
+          email: ["can't be empty"]})
+      } 
+      else if (!formData.password ){
+        console.log("Something went wrong");
+        setFormErrors({
           password: ["can't be empty"],
         });
       }
@@ -40,18 +47,7 @@ export default function Signup() {
   return (
     <div className=" mx-auto h-screen flex flex-col items-center gap-14 pt-12 tablet:gap-20">
       <div>
-        <svg
-          width="33"
-          height="27"
-          viewBox="0 0 33 27"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M26.463 0.408386L29.663 6.80839H24.863L21.663 0.408386H18.463L21.663 6.80839H16.863L13.663 0.408386H10.463L13.663 6.80839H8.86304L5.66304 0.408386H4.06304C2.29504 0.408386 0.879037 1.84039 0.879037 3.60839L0.863037 22.8084C0.863037 24.5764 2.29504 26.0084 4.06304 26.0084H29.663C31.431 26.0084 32.863 24.5764 32.863 22.8084V0.408386H26.463Z"
-            fill="#FC4747"
-          />
-        </svg>
+        <Logo/>
       </div>
       <div className=" text-white text-sm bg-light-teal-blue mx-auto p-6 min-w-[326px] rounded-lg tablet:min-w-[400px] tablet:rounded-xl">
         <form className=" flex flex-col items-center gap-6" onSubmit={handleSubmit}>
