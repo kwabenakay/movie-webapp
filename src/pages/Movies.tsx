@@ -12,7 +12,6 @@ export default function Movies() {
     setMovies(data.filter((movie) => movie.category === "Movie"));
   }, [data]);
 
-  // toggle bookmark logic
   function toggleBookmark(movie: movie) {
     let output = data.map((film) => {
       if (movie.title === film.title && movie.year === film.year) {

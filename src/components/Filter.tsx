@@ -1,6 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom";
 
-export default function Filter() {
+export default function Filter(Prop:{setSearch:React.Dispatch<React.SetStateAction<string>>}) {
   let loctation = useLocation();
   let navigate = useNavigate();
   let myString: string = loctation.pathname;
@@ -47,8 +47,9 @@ export default function Filter() {
       <input
         type="text"
         placeholder={pageType()}
-        className=" bg-transparent outline-none w-full focus:border-b-2 focus:border-b-white"
+        className=" bg-transparent outline-none w-full focus:border-b-2 focus:border-b-grey"
         onChange={(e) => {
+          Prop.setSearch(e.target.value)
           if (currentPage !== "search") {
             navigate("/search");
           } else if (e.target.value.trim().length === 0 || !e.target.value) {

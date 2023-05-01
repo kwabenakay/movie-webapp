@@ -13,7 +13,6 @@ export default function TvSeries() {
     setSeries(data.filter((movie) => movie.category === "TV Series"));
   }, [data]);
 
-  // toggle bookmark logic
   function toggleBookmark(movie: movie) {
     let output = data.map((film) => {
       if (movie.title === film.title && movie.year === film.year) {
