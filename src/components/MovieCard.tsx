@@ -24,7 +24,10 @@ export default function MovieCard(Prop: {
           />
           <div className=" text-xs flex items-center pt-1">
             <span>{movie.year} &bull; </span>
-            <span className=" flex gap-1 pl-1" > <ToggleIcon category ={movie.category}/> {movie.category} &bull; </span>
+            <span className=" flex gap-1 pl-1">
+              {" "}
+              <ToggleIcon category={movie.category} /> {movie.category} &bull;{" "}
+            </span>
             <span>{movie.rating}</span>
           </div>
           <div className=" tablet:text-xl">{movie.title}</div>

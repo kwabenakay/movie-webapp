@@ -10,11 +10,17 @@ export default function Bookmark() {
   const [series, setSeries] = useState<movie[]>([]);
 
   useEffect(() => {
-    setMovies(data.filter((movie) => movie.isBookmarked && movie.category==="Movie"));
-    setSeries(data.filter((movie) => movie.isBookmarked && movie.category==="TV Series"));
-  }, []);
-  
-  
+    localStorage.setItem("data", JSON.stringify(data));
+    setMovies(
+      data.filter((movie) => movie.isBookmarked && movie.category === "Movie")
+    );
+    setSeries(
+      data.filter(
+        (movie) => movie.isBookmarked && movie.category === "TV Series"
+      )
+    );
+  }, [data]);
+
   // toggle bookmark logic
   function toggleBookmark(movie: movie) {
     let output = data.map((film) => {
@@ -28,7 +34,9 @@ export default function Bookmark() {
     setData([...output]);
   }
 
-  return (
+  return data.length === 0 ? (
+    <div className=" text-4xl mt-5">Retry Login</div>
+  ) : (
     <div className=" mt-6">
       <div className=" pr-4 tablet:pr-6 mini-pc:pr-12">
         <div className="py-6 mini-pc:text-2xl">Bookmarked Movies</div>

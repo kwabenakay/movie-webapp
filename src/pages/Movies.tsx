@@ -8,8 +8,9 @@ export default function Movies() {
   );
   const [movies, setMovies] = useState<movie[]>([]);
   useEffect(() => {
+    localStorage.setItem("data", JSON.stringify(data));
     setMovies(data.filter((movie) => movie.category === "Movie"));
-  }, []);
+  }, [data]);
 
   // toggle bookmark logic
   function toggleBookmark(movie: movie) {
@@ -23,7 +24,9 @@ export default function Movies() {
     });
     setData([...output]);
   }
-  return (
+  return data.length === 0 ? (
+    <div className=" text-4xl mt-5">Retry Login</div>
+  ) : (
     <div className=" mt-6">
       <div className=" pr-4 tablet:pr-6 mini-pc:pr-12">
         <div className="py-6 mini-pc:text-2xl">Movies</div>

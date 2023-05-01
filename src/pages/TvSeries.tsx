@@ -3,14 +3,15 @@ import MovieCard from "../components/MovieCard";
 import { movie } from "../dataTypes";
 
 export default function TvSeries() {
-
   const [data, setData] = useState<movie[]>(
     JSON.parse(localStorage.getItem("data") || "[]")
   );
+  const [series, setSeries] = useState<movie[]>([]);
 
   useEffect(() => {
-    setData(data.filter((movie) => movie.category === "TV Series"));
-  }, []);
+    localStorage.setItem("data", JSON.stringify(data));
+    setSeries(data.filter((movie) => movie.category === "TV Series"));
+  }, [data]);
 
   // toggle bookmark logic
   function toggleBookmark(movie: movie) {
@@ -24,11 +25,13 @@ export default function TvSeries() {
     });
     setData([...output]);
   }
-  return (
+  return data.length === 0 ? (
+    <div className=" text-4xl mt-5">Retry Login</div>
+  ) : (
     <div className=" mt-6">
       <div className=" pr-4 tablet:pr-6 mini-pc:pr-12">
         <div className="py-6 mini-pc:text-2xl">TV Series</div>
-        <MovieCard movies={data} toggleBookmark={toggleBookmark}/>
+        <MovieCard movies={series} toggleBookmark={toggleBookmark} />
       </div>
     </div>
   );
