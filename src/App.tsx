@@ -1,5 +1,3 @@
-import Carousel from "./components/Carousel";
-import MovieCard from "./components/MovieCard";
 import SideBar from "./components/SideBar";
 import SearchOutput from "./components/SearchOutput";
 import Home from "./pages/Home";
