@@ -28,7 +28,9 @@ export default function SideBar() {
             <BookmarkLogo pageName={pageName} />
           </div>
         </div>
-        <div className=" h-full flex items-end">
+        <div className=" h-full flex items-end" onClick={()=>{
+          navigate("/login")
+        }}>
           <img
             src="/vite.svg"
             alt="profile"
