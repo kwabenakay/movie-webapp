@@ -14,17 +14,17 @@ export default function SideBar() {
         <div onClick={() => navigate("/home")}>
           <Logo />
         </div>
-        <div className=" flex gap-6 mini-pc:flex-col">
-          <div onClick={() => navigate("/home")}>
+        <div className=" flex gap-6  mini-pc:flex-col">
+          <div onClick={() => navigate("/home")} className=" hover:cursor-pointer">
             <HomeLogo pageName={pageName} />
           </div>
-          <div onClick={() => navigate("/movies")}>
+          <div onClick={() => navigate("/movies")} className=" hover:cursor-pointer">
             <MovieLogo pageName={pageName} />
           </div>
-          <div onClick={() => navigate("/tv-series")}>
+          <div onClick={() => navigate("/tv-series")} className=" hover:cursor-pointer">
             <TvSeriesLogo pageName={pageName} />
           </div>
-          <div onClick={() => navigate("/bookmark")}>
+          <div onClick={() => navigate("/bookmark")} className=" hover:cursor-pointer">
             <BookmarkLogo pageName={pageName} />
           </div>
         </div>
@@ -34,7 +34,7 @@ export default function SideBar() {
           <img
             src="/vite.svg"
             alt="profile"
-            className=" mini-pc:justify-self-end"
+            className=" mini-pc:justify-self-end hover:cursor-pointer"
           />
         </div>
       </div>
