@@ -33,7 +33,7 @@ function App() {
             <Filter setSearch={setSearch}/>
             <Routes>
               <Route path="/home" element={<Home />} />
-              <Route path="/" element={<Navigate to="/home" />} />
+              <Route path="/" element={<Navigate to="/login" />} />
               <Route path="/movies" element={<Movies />} />
               <Route path="/tv-series" element={<TvSeries />} />
               <Route path="/bookmark" element={<Bookmark />} />
