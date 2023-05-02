@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import data from "../data.json";
 import { Logo } from "../components/SVG";
@@ -15,6 +15,7 @@ export default function Signup() {
   const [repeatPassword, setRepeatPassword] = useState("");
   const [formErrors, setFormErrors] = useState<FormErrors>({});
   let navigate = useNavigate();
+  console.log(repeatPassword)
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
